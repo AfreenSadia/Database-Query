@@ -1,0 +1,50 @@
+Lab Task 05:
+
+1)
+
+Create table department(deptid number(3) primary key, deptname varchar(6) check(deptname in('CSE','EEE','BBA', 'Eng', 'Arch')), budget number(6) default 0);
+
+2)
+
+Create table course(crs_id number(4) primary key, crs_name varchar2(20) not null, deptid number(3), foreign key(deptid) references department(deptid));
+
+3)
+
+Create table student(s_id number(11),s_name varchar2(20),phone number(11),address varchar2(50), 
+email varchar2(30),credit_completed number(3), course_completed number(2),cgpa number(3),deptno number(5),gender varchar2(6));
+
+4)
+
+alter table student add constraint sk primary key(s_id)
+
+5)
+
+alter table student modify s_name not null
+
+6)
+
+alter table student add constraint uk unique(email)
+
+7)
+
+alter table student add constraint sk1 foreign key(deptno) references department(deptid)
+
+8)
+
+alter table student add constraint sk2 check(gender='M' or gender='F')
+
+9)
+
+alter table student disable constraint sk
+
+10)
+
+alter table student drop constraint sk2
+
+11)
+
+describe student
+
+12)
+
+alter table student enable constraint sk

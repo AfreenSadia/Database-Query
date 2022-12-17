@@ -1,0 +1,124 @@
+LAB 07:
+
+1)   
+
+SELECT ename , job, sal
+FROM EMP
+WHERE  sal > ALL
+              ( SELECT sal
+                FROM emp
+                WHERE JOB= 'MANAGER');
+
+2)
+
+SELECT ename , job, sal
+FROM EMP
+WHERE  sal > ANY
+              ( SELECT sal
+                FROM emp
+                WHERE job = 'MANAGER')
+   AND job <> 'MANAGER';
+
+3)
+
+SELECT empno , job, sal
+FROM EMP
+WHERE  job ='ANALYST' 
+
+     AND sal > ANY
+              ( SELECT sal
+                FROM emp
+                WHERE job = 'MANAGER')
+   AND job <> 'MANAGER';
+
+4)
+
+SELECT ename, empno, job
+FROM emp
+WHERE deptno =  (SELECT deptno
+                  FROM dept
+                  WHERE loc ='DALLAS') ;
+
+
+5)
+
+SELECT DNAME,LOC
+FROM DEPT 
+WHERE DEPTNO IN (SELECT DEPTNO 
+                 FROM EMP
+                 WHERE MGR IN (SELECT EMPNO 
+                               FROM EMP
+                               WHERE ENAME='CLARK'));
+
+6)
+
+SELECT DEPT.* 
+FROM DEPT,EMP 
+WHERE EMP.DEPTNO=DEPT.DEPTNO AND JOB='MANAGER' ;
+
+7)
+
+SELECT *
+FROM EMP 
+WHERE sal=(select max(sal) from emp);
+
+8)
+
+SELECT MAX(SAL)
+FROM EMP 
+WHERE SAL<(SELECT MAX(SAL) FROM EMP);
+
+9)
+
+SELECT MAX(SAL) 
+FROM EMP 
+WHERE SAL<(SELECT MAX(SAL) 
+           FROM EMP 
+           WHERE SAL<(SELECT MAX(SAL) FROM EMP));
+10)
+
+SELECT ENAME,DNAME 
+FROM EMP,DEPT
+WHERE EMP.DEPTNO=DEPT.DEPTNO
+                AND JOB IN('MANAGER','CLERK') 
+                AND DNAME IN('MARKETING','ACCOUNTING');
+
+11)
+
+SELECT ENAME,JOB 
+FROM EMP,DEPT 
+WHERE EMP.DEPTNO=DEPT.DEPTNO AND JOB='SALESMAN' AND DNAME<>'DALLAS';
+
+12)
+
+SELECT * 
+FROM EMP 
+WHERE JOB = (SELECT JOB 
+             FROM EMP 
+             WHERE ENAME='SCOTT');
+
+13)
+
+select*
+from emp
+WHERE SAL IN (SELECT SAL
+              FROM EMP
+              ENAME = 'SMITH');
+
+14)
+
+select*
+from emp
+where deptno =( select deptno 
+               from dept
+               where dname = 'MARKETING')
+AND TO_CHAR(hiredate, 'Dy') not in ('Fri', 'Sat');
+
+15)
+SELECT empno, ename, deptno
+FROM emp e
+WHERE sal > (SELECT AVG(sal)
+FROM emp e1
+WHERE e.deptno = e1.deptno
+GROUP BY deptno)
+ORDER BY deptno;

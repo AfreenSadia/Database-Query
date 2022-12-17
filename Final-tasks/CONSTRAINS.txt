@@ -1,0 +1,7 @@
+CONSTRAINTS:
+
+
+create table New_women(W_ID NUMBER(12) NOT NULL ,W_Name varchar(32) default 'No Name', 
+W_age number(10) check (W_AGE>= 50), H_No number(10), W_phone number(12) unique,TID number(12)); 
+
+describe New_women;

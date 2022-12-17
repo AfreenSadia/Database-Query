@@ -1,0 +1,17 @@
+subq:
+
+1.Write a query to display women name and age where women id is greater than 303.
+
+Select W_Name, W_age
+FROM WOMEN
+Where W_ID IN ( Select W_ID
+                From WInfo 
+                Where W_ID > 303);
+
+2.Write a query to display trip location ,trip start and end time where trip id is 205.
+
+Select T_Location, Start_Time, End_Time
+FROM tripT
+Where T_ID IN ( Select T_ID
+                From women
+                Where T_ID < 203);

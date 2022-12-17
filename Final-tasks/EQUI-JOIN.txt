@@ -1,0 +1,17 @@
+JOINING:
+
+1.EQI-JOIN:
+QUS: Display women name,age ,trip location and start time[ EQUI-JOIN]
+
+SELECT W.W_NAME,W.W_AGE,T.T_LOCATION, T.START_TIME
+FROM WOMEN W, TRIPT T
+WHERE W.TID= T.T_ID;
+
+2.SELF JOIN:
+
+QUS:Write a query to display women name , trip location and trip start time using self join.
+
+Select W.W_NAME ||' ' || T.T_LOCATION|| ' trip will start at ' || T.START_TIME
+FROM WOMEN W, TRIPT T
+WHERE W.TID = T.T_ID;
+

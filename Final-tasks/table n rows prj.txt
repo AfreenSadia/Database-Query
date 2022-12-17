@@ -1,0 +1,87 @@
+1)	create table admin(A_ID number(12) primary key, A_Name varchar(32), A_phone number(12), A_email varchar(30));
+insert into admin(A_ID, A_Name, A_phone, A_email) values (001, 'Amy', 01848, 'amy@gmail.com');
+insert into admin(A_ID, A_Name, A_phone, A_email) values (002, 'Bilal', 04862, 'bilal@gmail.com');
+insert into admin(A_ID, A_Name, A_phone, A_email) values (003, 'Rahman', 07800, 'rahman@gmail.com');
+
+select *
+from admin;
+
+
+2) create table driver(D_ID number(12) primary key, D_Name varchar(32), D_Location varchar2(32), D_phone number(12), AID number(12), foreign key(AID) references admin(A_ID));
+
+
+insert into driver(D_ID, D_Name, D_Location, D_phone, AID) values (101, 'Karim', 'Uttara', 1122, 002);
+insert into driver(D_ID, D_Name, D_Location, D_phone, AID) values (102, 'Rahim', 'Mirpur', 2266, 003);
+insert into driver(D_ID, D_Name, D_Location, D_phone, AID) values (103, 'Shojol', 'Farmgate', 3338, 001);
+
+select *
+from driver;
+
+
+3) create table driverP(D_ID number(12) primary key, D_phone number(12));
+
+insert into driverP(D_ID, D_phone) values (099, 015485);
+insert into driverP(D_ID, D_phone) values (097, 01595995);
+insert into driverP(D_ID, D_phone) values (089, 01962485);
+insert into driverP(D_ID, D_phone) values (090, 015485659);
+insert into driverP(D_ID, D_phone) values (100, 01796485);
+
+select*
+from driverP;
+
+
+4) create table driver1(D_ID number(12) primary key, D_Name varchar(32), D_Location varchar2(32), D_phone number(12), TID number(12), foreign key(TID) references trip(T_ID));
+
+insert into driver1(D_ID, D_Name, D_Location, D_phone, TID) values (101, 'Karim', 'Uttara', 1122, 007);
+insert into driver1(D_ID, D_Name, D_Location, D_phone, TID) values (102, 'Rahim', 'Mirpur', 2266, 009);
+insert into driver1(D_ID, D_Name, D_Location, D_phone, TID) values (103, 'Shojol', 'Farmgate', 3338, 005);
+
+select *
+from driver1;
+
+
+
+
+5)create table trip(T_ID number(12) primary key, T_Location varchar2(32), Start_Time float(12), End_Time float(12), DID number(12), foreign key(DID) references driver(D_ID));
+
+insert into trip(T_ID, T_Location, Start_Time, End_Time, DID) values (201, 'Bashundhara', 14.00, 14.30, 101);
+
+insert into trip(T_ID, T_Location, Start_Time, End_Time, DID) values (202, 'Baridhara', 10.00, 12.00, 103);
+
+insert into trip(T_ID, T_Location, Start_Time, End_Time, DID) values (203, 'Gulshan', 8.00, 10.00, 102);
+
+select * 
+from trip;
+
+
+
+6)  create table women(W_ID number(12) primary key, W_Name varchar(32), W_age number(10), H_No number(10), W_phone number(12), TID number(12), foreign key(TID) references trip(T_ID));
+
+7) create table houseno (H_no number(12) primary key, city varchar(32), street_name varchar2(32));
+
+insert into houseno(H_no, city, street_name) values ( 0115, 'Dhaka', 'Lalmatia');
+insert into houseno(H_no, city, street_name) values ( 0365, 'Dhaka', 'Telipara');
+insert into houseno(H_no, city, street_name) values ( 0185, 'Dhaka', 'Kuritola');
+
+select*
+from houseno;
+
+8) create table WInfo(W_ID number(12) primary key, W_phone number(12));
+
+
+insert into WInfo(W_ID, W_phone) values (011, 019485);
+insert into WInfo(W_ID, W_phone) values (012, 01695995);
+insert into WInfo(W_ID, W_phone) values (013, 01862485);
+insert into WInfo(W_ID, W_phone) values (015, 011485659);
+insert into WInfo(W_ID, W_phone) values (019, 01596485);
+
+select*
+from WInfo;
+
+
+
+
+
+
+
+
