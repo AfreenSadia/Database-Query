@@ -1,0 +1,44 @@
+LAB NO - 02
+
+No 01:
+Select ename , sal salary 
+from emp
+where sal>2850;
+
+No 02:
+SELECT ename,DEPTNO
+from emp
+where empno=7566;
+
+No 03:
+select ename, job, hiredate 
+from emp
+where hiredate between '20-FEB-1981' and '01-MAY-1981'
+order by hiredate;
+
+No 04:
+SELECT ename, deptno 
+FROM emp 
+WHERE deptno =10 or deptno =30 
+ORDER BY ename;
+
+No 05:
+SELECT ename "Employee", sal "Monthly Salary" 
+FROM emp 
+WHERE sal > 1500 
+AND (deptno =10 or deptno =30);
+
+No 06:
+SELECT ename, hiredate 
+FROM emp 
+WHERE hiredate between '01-JAN-1982' and '31-DEC-1982'
+ORDER BY ename;
+
+No 08:
+SELECT ename, sal, comm 
+FROM emp 
+WHERE comm IS NOT NULL 
+ORDER BY sal DESC, comm DESC; 
+
+
+

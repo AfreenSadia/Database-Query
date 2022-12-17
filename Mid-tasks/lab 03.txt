@@ -1,0 +1,28 @@
+LAB TASK 03:
+
+1)   select sysdate 
+from dual;
+
+2)  select empno, ename, sal, sal+(sal*15.5/100) "New Salary"
+from emp;
+
+3) select empno, ename, sal, sal+(sal*15.5/100) "New Salary", (sal+(sal*15.5/100))-sal "Increses"
+from emp;
+
+4)  select ename, hiredate, to_char((next_day(hiredate,'Sunday')),'fmday," the "ddspth "of" month,yyyy') "REVIEW"
+from emp;
+
+5)  select ename, round(months_between(sysdate,hiredate),0) "MONTHS_WORKED"
+from emp
+order by 2;
+
+6)  select ename||' earns $'||sal||' monthly but wants $'||sal*3 "Dream Salary"
+from emp;
+
+7)   select initcap(ename) "Name", length(ename) "Length of Name"
+from emp
+where ename like 'J%' or ename like 'A%' or ename like 'M%'
+order by ename;
+
+8)   select ename,nvl(to_char(comm),'No Commission') comm
+from emp;

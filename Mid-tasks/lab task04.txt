@@ -1,0 +1,38 @@
+Lab Task 04:
+
+1)  SELECT empno, ROUND(MAX(sal),0) "Maximum",
+ROUND(MIN(sal),0) "Minimum",
+ROUND(AVG(sal),0) "Average"
+FROM emp
+GROUP BY empno;
+
+2)  SELECT deptno, ROUND(MAX(sal),0) "Maximum",
+ROUND(MIN(sal),0) "Minimum",
+ROUND(AVG(sal),0) "Average"
+FROM emp
+GROUP BY deptno;
+
+3)  SELECT job, ROUND(MAX(sal),0) "Maximum",
+ROUND(MIN(sal),0) "Minimum",
+ROUND(AVG(sal),0) "Average"
+FROM emp
+GROUP BY job;
+
+4)   SELECT ename, job, sal
+FROM emp
+WHERE sal = (SELECT MIN(sal)
+FROM emp);
+
+5)  select max(loc)
+from dept;
+
+6)  select max(sum(sal))
+from emp
+group by job;
+
+7)  select ename, deptno
+from emp
+Where sal=
+(select MAX(sal)
+from emp);
+  

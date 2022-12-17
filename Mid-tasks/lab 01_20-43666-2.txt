@@ -1,0 +1,21 @@
+Lab Task 01.
+
+No 01:
+select ename name, job Department
+from emp;
+
+No 02:
+Select job, deptno
+From emp
+where deptno = 30
+
+No 03:
+SELECT deptNO
+FROM emp 
+WHERE  deptNO= 30 ;
+
+
+No 04:
+SELECT empno ,ename , comm 
+FROM emp 
+Where comm>0;
